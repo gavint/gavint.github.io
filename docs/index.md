@@ -5,6 +5,6 @@
 layout: default
 title: home
 ---
-# home
+# Title
 
 Home page goes here.
