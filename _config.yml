@@ -19,10 +19,10 @@ skin: "/assets/css/skins/default.css"
 locale: en-US
 title: "Every path can be fun - you've just got to decide which path to travel"
 description: "It really is the best."
-baseurl: # the subpath of your site, e.g. "/blog"
+baseurl: /
 url: https://terpstra.co
-logo: # path of site logo, e.g. "/images/logo.png"
-date_format: "%B %-d, %Y"
+logo: /images/duck-crop.jpg
+date_format: "%-d %b %Y"
 read_time: # reading time estimates, e.g. true
 words_per_minute: # 200
 mathjax:
@@ -30,9 +30,9 @@ mathjax:
   combo:  # "tex-svg" (default), "tex-mml-chtml", etc.: docs.mathjax.org/en/latest/web/components/combined.html
   tags:  # "none", "ams" (default), "all"
 google_fonts:
+  - name: "Syne Mono"
+    weights: "400"
   - name: "Source Sans Pro"
-    weights: "400,400i,700,700i"
-  - name: "Lora"
     weights: "400,400i,700,700i"
 google_analytics: # Google Analytics id, e.g. "UA-NNNNNNNN-N"
 disqus:
@@ -55,7 +55,7 @@ feed:
 # paginate_path: /page:num/
 
 # Search
-search_full_content: false # can have performance implications for large sites
+search_full_content: true # can have performance implications for large sites
 
 # Taxonomy pages
 # category_archive_path: "/categories/#"
@@ -93,7 +93,7 @@ defaults:
 author:
   name: Gavin Terpstra
   picture:
-  email: 
+  email:
   twitter: @gavin-terpstra
   links:
     - title:
