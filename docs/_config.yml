@@ -18,7 +18,7 @@ remote_theme: "mmistakes/so-simple-theme@3.2.0"
 skin: "/assets/css/skins/default.css"
 locale: en-US
 title: "So much to learn"
-description: "Every path can be fun - you've just got to decide which path to travel"
+description: "Every path can be fun - you've just got to decide which one to travel"
 baseurl:
 url: https://terpstra.co
 logo: /images/duck_crop.jpg
