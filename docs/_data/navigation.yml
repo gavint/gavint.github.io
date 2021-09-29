@@ -6,7 +6,9 @@
   url: /posts/
 - title: Photos
   url: /photos/
-- title: Categories
-  url: /categories/
+- title: About
+  url: /about/
+- title: Contact
+  url: /contact  
 - title: Tags
   url: /tags/
