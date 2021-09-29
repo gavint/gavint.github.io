@@ -1,6 +1,6 @@
 ---
 title: About
-layout: Default
+layout: post
 permalink: /about
 ---
 
