@@ -7,3 +7,4 @@ entries_layout: list
 ---
 
 [Starting my Jekyll Journey](building_jekyll)
+[Thoughts on different investment ideas](barefoot_investor_investing_thoughts)
