@@ -1,22 +1,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    {%- include head-content.html -%}
   </head>
   <body>
   <div class="layout">
 
     {%- include nav.html -%}
 
-    <div class="hero-img">
-    <img src="/assets/images/hi.png" alt="Hi"> 
-    </div>
 
 
     <h1>{{ page.title }}</h1>
     <section>
+
+      <div class="hero-img">
+        <img src="/assets/images/hi.png" alt="Hi"> 
+        </div>
+    
+
       {{ content }}
     </section>
     <footer>

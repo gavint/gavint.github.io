@@ -8,4 +8,5 @@ categories: home
 ---
 
 
-My home! 
+From the little things, big things grow. 
+
