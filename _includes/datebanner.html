@@ -1,0 +1,56 @@
+
+    <form action="">
+  <div class="date-picker-container">
+    <div class="date-picker-title">Please pick your intended Date</div>
+    <div class="date-picker">
+      <input type="date" id="date-picker" name="date-picker">
+      
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<div class="selected-date-container" hidden>
+    <h2 class="selected-date-title">Your selected date:</h2>
+    <div class="selected-date">
+      <span id="selected-date-value"></span> at <span id="current-time"></span>
+    </div>
+    <button type="button" id="change" onclick="deletecookie()">Do u want to change it?</button>
+  </div>
+
+
+<script>
+
+    // Get the date input element and the form element
+    const InputDate = document.getElementById('date-picker');
+    const form = document.querySelector('form');
+
+    // When the form is submitted, set the cookie with the date value and add the date to the URL query string
+    form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    // Get the date value from the input element
+    const Value = InputDate.value;
+
+
+    const date = new Date(Value);
+
+    // Create a new cookie with the date value and a 4-hour expiration time
+    document.cookie = `mycookie=hello; date=${date}; expires=${new Date(Date.now() + 4 * 60 * 60 * 1000).toUTCString()}; path=/`;
+
+    // Append the date value to the URL query string as a UTM code
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set('date', Value);
+    const newUrl = currentUrl.toString();
+
+    // Redirect the user to the new URL
+    window.location.href = newUrl;
+
+
+   
+
+    
+    });
+
+</script>
+</body>
+</html>
