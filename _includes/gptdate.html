@@ -1,0 +1,110 @@
+
+<div width="100%" style="width: 100%; background-color: #1B793C;">
+<table style=" margin: 0 auto;" >
+  <tr style="height: 40px;" >
+    <td style="height: 40px; padding: 0 1rem;">
+      <h4 style="color: #fff;"><bold>Select a date:</bold></h4>
+    </td>    
+    <td style="height: 40px; padding: 0 1rem;">
+      <input type="date" id="datepicker">
+    </td>    
+    <td style="height: 40px; padding: 0 1rem;">
+      <button style="color: #333; font-weight: bold;" class="SC-Button" onclick="saveDate()">Save Date</button> 
+    </td>    
+    <td style="height: 40px; padding: 0 1rem;">
+      <div id="selectedDate" style="font-weight: bold; color: #fff;"></div>
+    </td>   
+    <td style="height: 40px; padding: 0 1rem;">
+      <button style="color: #333; font-weight: bold;" class="SC-Button" onclick="clearDate()">Clear Date</button>
+    </td>    
+  </tr>
+</table>
+</div>
+
+<!-- <div style="background-color: #1B793C; padding: 10px; margin: 0 auto;">
+  <h4 style="color: #fff;"><bold>Select a date:</bold> <input type="date" id="datepicker"></h4>
+  <button style="SC-Button" onclick="saveDate()">Save Date</button>
+  <button style="SC-Button" onclick="clearDate()">Clear Date</button>
+  <div id="selectedDate"></div>
+  </div>   -->
+
+  
+
+
+  <script>
+    function saveDate() {
+      var datepicker = document.getElementById('datepicker');
+      var selectedDate = datepicker.value;
+      var expirationDate = new Date();
+      expirationDate.setTime(expirationDate.getTime() + (4 * 60 * 60 * 1000)); // 4 hours
+  
+      var savedDate = getCookie('selectedDate');
+      if (savedDate) {
+        // erase the previously saved date before setting the new one
+        document.cookie = 'selectedDate=;expires=' + new Date().toUTCString() + ';path=/;';
+      }
+  
+      // set the new selectedDate cookie
+      document.cookie = 'selectedDate=' + selectedDate + ';expires=' + expirationDate.toUTCString();
+  
+      console.log('Selected date:', selectedDate);
+      document.getElementById('selectedDate').textContent = 'Selected date: ' + selectedDate;
+      appendUTM(selectedDate);
+    }
+  
+    function clearDate() {
+      var savedDate = getCookie('selectedDate');
+      if (savedDate) {
+        document.cookie = 'selectedDate=;expires=' + new Date().toUTCString() + ';path=/;';
+        console.log('Cleared saved date');
+        document.getElementById('selectedDate').textContent = '';
+        removeUTM();
+      }
+    }
+  
+    function getCookie(name) {
+      var value = '; ' + document.cookie;
+      var parts = value.split('; ' + name + '=');
+      if (parts.length === 2) {
+        return parts.pop().split(';').shift();
+      }
+    }
+  
+    function appendUTM(selectedDate) {
+      var currentUrl = window.location.href;
+      var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
+      var utmTerm = 'utm_term=' + selectedDate;
+      var newUrl = currentUrl + separator + utmTerm;
+      console.log('New URL:', newUrl);
+      window.history.replaceState({}, document.title, newUrl);
+      submitToServer(selectedDate);
+    }
+  
+    function removeUTM() {
+      var currentUrl = window.location.href;
+      var newUrl = currentUrl.replace(/([?&])utm_term=[^&]+(&|$)/, '$1').replace(/[?&]$/, '');
+      console.log('New URL:', newUrl);
+      window.history.replaceState({}, document.title, newUrl);
+    }
+  
+    function submitToServer(selectedDate) {
+      // Submit the selected date to the server using AJAX or a form submission
+      // Here's an example using AJAX:
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          console.log('Date submitted successfully:', selectedDate);
+        }
+      };
+      xhttp.open('GET', '/submit-date?selectedDate=' + selectedDate, true);
+      xhttp.send();
+    }
+  
+    var selectedDate = getCookie('selectedDate');
+    if (selectedDate) {
+      document.getElementById('selectedDate').textContent = 'Selected date: ' + selectedDate;
+      document.getElementById('datepicker').value = selectedDate;
+      appendUTM(selectedDate);
+    }
+  </script>
+  

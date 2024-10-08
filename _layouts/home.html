@@ -7,6 +7,8 @@
   <div class="layout">
 
     {%- include nav.html -%}
+    
+    
 
 <br>
 
@@ -20,11 +22,13 @@
       <h3>{{ page.title }}</h3>
 
       {{ content }}
-
+      {%- include gptdate.html -%}
       <a href="/articles/datepicker">datepicker</a>
     </section>
     <footer>
  
+      {%- include table.html -%}
+
     </footer>
   </div>
   </body>

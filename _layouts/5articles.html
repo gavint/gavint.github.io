@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
     {%- include head-content.html -%}
-  
   </head>
   <body>
 
     {%- include nav.html -%}
+    
+    <h1>{{ page.title }}</h1>
 
-    {%- include datebanner.html -%}
+    {%- include gptdate.html -%}
 
-
-    <p>(add content here)</p>
-
+    <section>
+      {{ content }}
+    </section>
     <footer>
-
+      {%- include test-index.html -%}
     </footer>
-
   </body>
 </html>
