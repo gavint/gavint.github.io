@@ -20,30 +20,3 @@ h1 {
     color: red;
 }
 
-
-.embeddedMessagingFrame {
-    height: 0;
-    width: 0;
-    position: fixed;
-    background: transparent;
-    border: none;
-    outline: none;
-    border-radius: 8px 8px 0 0;
-    box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
-}
-    
-.embeddedMessagingFrame, .embeddedMessagingConversationButtonWrapper {
-    z-index: 999;
-}
-    
-.embedded-messaging > .embeddedMessagingFrame[class~="isMaximized"]
-    {
-        bottom: 0;
-        right: 30px;
-        margin: 0;
-        height: 554px;
-        width: 344px;
-        display: inline-block;
-        visibility: visible;
-        max-height: calc(100vh - 9em);
-}
