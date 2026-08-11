@@ -453,19 +453,6 @@ section[id] {
   line-height: 1.5;
 }
 
-.services__note {
-  text-align: center;
-  padding: 20px 24px;
-  background-color: var(--accent-tint);
-  border-radius: 14px;
-}
-
-.services__note p {
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 500;
-}
-
 /* ==========================================================================
    Results / case studies
    ========================================================================== */
