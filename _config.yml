@@ -18,17 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: terpstra.co
-email: connect@terpstra.co
+title: Gavin Terpstra — Marketing, Brand & Growth
+email: gavin@terpstra.co
 description: >- # this means to ignore newlines until "baseurl:"
-  Coming soon.
+  I help businesses grow — brand, marketing, and the strategy to reach their market.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://terpstra.co" # the base hostname & protocol for your site, e.g. http://example.com
-
-# Build settings
-theme: minima
-plugins:
-  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
